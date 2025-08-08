@@ -73,13 +73,13 @@ if ($stmt->execute()) {
         $mail->isSMTP();
         $mail->Host       = 'smtp-relay.brevo.com';  
         $mail->SMTPAuth   = true;
-        $mail->Username   = 'wmm.malshan@gmail.com';        
-        $mail->Password   = 'xsmtpsib-46515bfaf719a89b2d214d65695e6aba2a7714ce8445e8937074672c1a92cb6d-Rnr5StqjzQv0IAhB';   // SMTP password - keep this secure
+        $mail->Username   = 'SMTP_USER_NAME';        
+        $mail->Password   = 'YOUR_SMTP_KEY';   // SMTP password - keep this secure
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
         $mail->Port       = 587;
         
 
-        $mail->setFrom('sfp-admin@rtxconfigz.com', 'Student Feedback Portal - University of Vavuniya');
+        $mail->setFrom('SENDER EMAIL', 'Student Feedback Portal - University of Vavuniya');
         $mail->addAddress($email, $name);
 
         $mail->isHTML(true);
