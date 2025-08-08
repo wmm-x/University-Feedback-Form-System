@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Thank You | University of Vavuniya</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --primary: #2c3e50;
+        --primary-light: #34495e;
+        --success: #8e44ad;
+        --success-light: #2ecc71;
+        --text-primary: #2c3e50;
+        --text-secondary: #5a6c7d;
+        --text-muted: #7f8c8d;
+        --border-light: #e8ecef;
+        --bg-primary: #ffffff;
+        --bg-secondary: #f8f9fa;
+        --shadow-light: 0 2px 4px rgba(0, 0, 0, 0.04);
+        --shadow-medium: 0 4px 6px rgba(0, 0, 0, 0.07);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI",
+          sans-serif;
+        background: var(--bg-secondary);
+        color: var(--text-primary);
+        line-height: 1.6;
+      }
+
+      body {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+      }
+
+      /* Header */
+      header {
+        background: var(--bg-primary);
+        border-bottom: 1px solid var(--border-light);
+        padding: 1rem 2rem;
+        box-shadow: var(--shadow-light);
+      }
+
+      .header-content {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+      }
+
+      header img {
+        height: 40px;
+        width: 40px;
+        border-radius: 4px;
+      }
+
+      .header-text {
+        flex: 1;
+      }
+
+      .header-text h1 {
+        margin: 0;
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: var(--text-primary);
+      }
+
+      .header-text p {
+        margin: 0;
+        font-size: 0.875rem;
+        color: var(--text-muted);
+      }
+
+      /* Main Content */
+      main {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 2rem 1rem;
+        max-width: 600px;
+        margin: 0 auto;
+        width: 100%;
+      }
+
+      .thank-you-container {
+        background: var(--bg-primary);
+        border-radius: 8px;
+        box-shadow: var(--shadow-medium);
+        border: 1px solid var(--border-light);
+        padding: 3rem 2rem;
+        text-align: center;
+        width: 100%;
+      }
+
+      .success-icon {
+        width: 80px;
+        height: 80px;
+        background: var(--success);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 2rem;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .success-icon::before {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          45deg,
+          transparent 30%,
+          rgba(255, 255, 255, 0.1) 50%,
+          transparent 70%
+        );
+        animation: shine 2s ease-in-out;
+      }
+
+      .checkmark {
+        width: 32px;
+        height: 32px;
+        stroke: white;
+        stroke-width: 3;
+        fill: none;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+
+      .checkmark path {
+        stroke-dasharray: 100;
+        stroke-dashoffset: 100;
+        animation: checkmark 0.8s ease-in-out 0.3s forwards;
+      }
+
+      @keyframes checkmark {
+        to {
+          stroke-dashoffset: 0;
+        }
+      }
+
+      @keyframes shine {
+        0% {
+          transform: translateX(-100%) rotate(45deg);
+        }
+        100% {
+          transform: translateX(200%) rotate(45deg);
+        }
+      }
+
+      .thank-you-title {
+        margin: 0 0 1rem;
+        font-size: 2rem;
+        font-weight: 600;
+        color: var(--text-primary);
+      }
+
+      .thank-you-message {
+        margin: 0 0 2rem;
+        font-size: 1.125rem;
+        color: var(--text-secondary);
+        line-height: 1.6;
+      }
+
+      .submission-details {
+        background: var(--bg-secondary);
+        border-radius: 6px;
+        padding: 1.5rem;
+        margin: 2rem 0;
+        border-left: 4px solid var(--success);
+      }
+
+      .submission-details h3 {
+        margin: 0 0 1rem;
+        font-size: 1rem;
+        font-weight: 600;
+        color: var(--text-primary);
+      }
+
+      .detail-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 0.5rem;
+        font-size: 0.9rem;
+      }
+
+      .detail-item:last-child {
+        margin-bottom: 0;
+      }
+
+      .detail-label {
+        color: var(--text-muted);
+        font-weight: 500;
+      }
+
+      .detail-value {
+        color: var(--text-primary);
+        font-weight: 500;
+      }
+
+      .action-buttons {
+        display: flex;
+        gap: 1rem;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+
+      .btn {
+        padding: 0.75rem 1.5rem;
+        border: none;
+        border-radius: 4px;
+        font-size: 1rem;
+        font-weight: 500;
+        font-family: inherit;
+        cursor: pointer;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        transition: all 0.2s ease;
+      }
+
+      .btn-primary {
+        background: var(--primary);
+        color: white;
+      }
+
+      .btn-primary:hover {
+        background: var(--primary-light);
+        transform: translateY(-1px);
+      }
+
+      .btn-secondary {
+        background: transparent;
+        color: var(--text-secondary);
+        border: 1px solid var(--border-light);
+      }
+
+      .btn-secondary:hover {
+        background: var(--bg-secondary);
+        border-color: var(--text-secondary);
+      }
+
+      /* Footer */
+      footer {
+        background: var(--bg-primary);
+        border-top: 1px solid var(--border-light);
+        padding: 1.5rem 2rem;
+        text-align: center;
+        color: var(--text-muted);
+        font-size: 0.875rem;
+      }
+
+      /* Responsive Design */
+      @media (max-width: 768px) {
+        header {
+          padding: 1rem;
+        }
+
+        .header-content {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 0.5rem;
+        }
+
+        .header-text h1 {
+          font-size: 1.25rem;
+        }
+
+        main {
+          padding: 1rem 0.5rem;
+        }
+
+        .thank-you-container {
+          padding: 2rem 1.5rem;
+        }
+
+        .thank-you-title {
+          font-size: 1.75rem;
+        }
+
+        .thank-you-message {
+          font-size: 1rem;
+        }
+
+        .action-buttons {
+          flex-direction: column;
+          align-items: stretch;
+        }
+
+        .btn {
+          justify-content: center;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .header-text h1 {
+          font-size: 1.125rem;
+        }
+
+        .thank-you-container {
+          padding: 1.5rem 1rem;
+        }
+
+        .thank-you-title {
+          font-size: 1.5rem;
+        }
+
+        .success-icon {
+          width: 60px;
+          height: 60px;
+        }
+
+        .checkmark {
+          width: 24px;
+          height: 24px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <div class="header-content">
+        <img src="./img/logo.png" alt="University of Vavuniya Logo" />
+        <div class="header-text">
+          <h1>University of Vavuniya</h1>
+          <p>Student Feedback Portal</p>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <div class="thank-you-container">
+        <div class="success-icon">
+          <svg class="checkmark" viewBox="0 0 52 52">
+            <path d="M14,27 L22,35 L38,19"></path>
+          </svg>
+        </div>
+
+        <h1 class="thank-you-title">Thank You!</h1>
+        <p class="thank-you-message">
+          Your feedback has been successfully submitted. We appreciate your time
+          and valuable input, which helps us improve our services and academic
+          programs.
+        </p>
+
+        <div class="submission-details">
+          <h3>Submission Details</h3>
+          <div class="detail-item">
+            <span class="detail-label">Submitted on:</span>
+            <span class="detail-value" id="submission-date"></span>
+          </div>
+          <div class="detail-item">
+            <span class="detail-label">Status:</span>
+            <span class="detail-value">Successfully Received</span>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      &copy; <span id="current-year"></span> Department of ICT, Faculty of
+      Technological Studies — University of Vavuniya
+    </footer>
+
+    <script>
+      document.getElementById("current-year").textContent =
+        new Date().getFullYear();
+      const now = new Date();
+      const options = {
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+        hour: "2-digit",
+        minute: "2-digit",
+      };
+      document.getElementById("submission-date").textContent =
+        now.toLocaleDateString("en-US", options);
+    </script>
+  </body>
+</html>
