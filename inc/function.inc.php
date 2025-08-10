@@ -108,14 +108,14 @@ function loginUser($conn, $username, $pw)
 {
     $usaerExists = userExists($conn, $username);
     if ($usaerExists === false) {
-        header("Location:../login.php?error=wronglogin1");
+        header("Location:../login.php?error=wronglogin");
         exit();
     }
     $hashedpw = $usaerExists["password"];
     $checkpw = password_verify($pw, $hashedpw);
 
     if ($checkpw === false) {
-        header('Location:../login.php?error=wronglogin2');
+        header('Location:../login.php?error=wronglogin');
         exit();
     } elseif ($checkpw === true) {
         session_start();

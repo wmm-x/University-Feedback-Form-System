@@ -184,7 +184,7 @@ $stmt->close();
                     <div class="section-header">
                         <h2>Lecturer Management</h2>
                         <div class="search-group">
-                            <input type="text" id="lecturer-search" class="search-input" placeholder="Search lecturers by name, email, or department..." />
+                            <input type="text" id="lecturer-search" class="search-input" placeholder="Search lecturers by Name or Email" />
                         </div>
                     </div>
                     <table class="lecturer-table">

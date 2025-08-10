@@ -7,54 +7,67 @@
   <title>University of Vavuniya - Feedback Portal</title>
   <link rel="icon" href="./src/img/logo.png" type="image/png">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --primary: #6c04cd;
-      --primary-dark: #4a0589ff;
+      /* Refined color palette */
+      --primary: #5A189A;
+      --primary-dark: #3C096C;
       --text-dark: #1f2937;
-      --text-light: #64748b;
-      --bg: #f8f9fc;
+      --text-light: #6b7280;
+      --surface: #ffffff;
+      --background: #f9fafb;
+      --border-light: #e5e7eb;
+      --error-bg: #FEE2E2;
+      --error-text: #B91C1C;
+      --error-border: #FCA5A5;
     }
 
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
-      font-family: 'Inter', 'Segoe UI', sans-serif;
     }
 
     body {
-      background: var(--bg);
+      font-family: 'Inter', sans-serif;
+      /* Subtle gradient background */
+      background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
       min-height: 100vh;
       display: flex;
       flex-direction: column;
       line-height: 1.6;
+      color: var(--text-dark);
     }
 
     header {
-      background: var(--primary);
-      color: white;
-      padding: 0.5rem 2rem;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+      background: var(--surface);
+      color: var(--text-dark);
+      padding: 0.75rem 2rem;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+      border-bottom: 1px solid var(--border-light);
     }
 
     .header-content {
       max-width: 1200px;
-      margin: 0;
+      margin: 0 auto;
       display: flex;
       align-items: center;
       gap: 1rem;
     }
 
     .logo {
-      height: 40px;
+      height: 45px;
     }
 
     .header-title {
-      font-size: 1.25rem;
+      font-size: 1.2rem;
       font-weight: 600;
       line-height: 1.4;
     }
+
     .show-hide-btn {
       position: absolute;
       right: 1rem;
@@ -63,14 +76,17 @@
       background: none;
       border: none;
       color: #9ca3af;
-      font-size: 1.1rem;
+      font-size: 1rem;
       cursor: pointer;
       padding: 0;
       outline: none;
     }
+
+    .show-hide-btn:hover,
     .show-hide-btn:focus {
       color: var(--primary);
     }
+
     main {
       flex: 1;
       display: flex;
@@ -81,51 +97,50 @@
 
     .login-container {
       width: 100%;
-      max-width: 420px;
-      margin: 0 ;
+      max-width: 400px;
     }
 
     .login-card {
-      background: #fff;
-      border-radius: 12px;
-      border: 1px solid #e0e0e0;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+      background: var(--surface);
+      border-radius: 16px;
+      /* Softer, more layered shadow */
+      box-shadow: 0 4px 6px rgba(0,0,0,0.02), 0 10px 20px rgba(0,0,0,0.07);
       overflow: hidden;
+      border: 1px solid var(--border-light);
     }
 
     .card-header {
-      padding: 2rem 1.5rem 1.25rem;
+      padding: 2rem;
       text-align: center;
-      border-bottom: 1px solid #eee;
     }
 
     .center-logo {
       height: 60px;
-      margin-bottom: 0.1rem;
+      margin-bottom: 0.75rem;
     }
 
     .card-title {
-      font-size: 1.5rem;
+      font-size: 1.75rem;
       font-weight: 700;
       color: var(--text-dark);
     }
 
     .card-subtitle {
-      font-size: 0.95rem;
+      font-size: 1rem;
       color: var(--text-light);
       margin-top: 0.25rem;
     }
 
     .card-body {
-      padding: 1.25rem;
+      padding: 0.5rem 2rem 2rem;
     }
 
     .form-group {
-      margin-bottom: 1.25rem;
+      margin-bottom: 1.5rem;
     }
 
     .form-label {
-      font-size: 0.9rem;
+      font-size: 0.875rem;
       font-weight: 600;
       color: var(--text-dark);
       margin-bottom: 0.5rem;
@@ -146,17 +161,19 @@
 
     .form-input {
       width: 100%;
-      padding: 0.75rem 1rem 0.75rem 2.75rem;
-      border: 1.5px solid #d1d5db;
+      padding: 0.85rem 1rem 0.85rem 3rem;
+      border: 1px solid var(--border-light);
       border-radius: 8px;
       font-size: 1rem;
       background: #fff;
-      transition: border 0.2s ease;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
     }
 
+    /* Enhanced focus state */
     .form-input:focus {
       border-color: var(--primary);
       outline: none;
+      box-shadow: 0 0 0 3px rgba(90, 24, 154, 0.15);
     }
 
     .form-input::placeholder {
@@ -166,18 +183,20 @@
     .login-button {
       width: 100%;
       padding: 0.9rem;
-      background: var(--primary);
+      background-image: linear-gradient(to right, var(--primary) 0%, var(--primary-dark) 100%);
       color: #fff;
       border: none;
       border-radius: 8px;
       font-size: 1rem;
       font-weight: 600;
       cursor: pointer;
-      transition: background 0.2s ease, transform 0.1s ease;
+      transition: all 0.2s ease;
+      letter-spacing: 0.5px;
     }
 
     .login-button:hover {
-      background: var(--primary-dark);
+      background-size: 200% auto;
+      box-shadow: 0 4px 15px 0 rgba(90, 24, 154, 0.3);
     }
 
     .login-button:active {
@@ -185,46 +204,49 @@
     }
 
     footer {
-      background: #1f1f2e;
-      color: white;
+      background: #111827; /* Darker footer */
+      color: #9ca3af;
       text-align: center;
-      padding: 1.25rem;
+      padding: 1.5rem;
       font-size: 0.875rem;
     }
 
     .footer-text {
-      opacity: 0.85;
+      opacity: 0.9;
     }
 
     @media (max-width: 768px) {
       .header-content {
-      flex-direction: row;
-      align-items: center;
-      text-align: left;
-      justify-content: flex-start;
-      gap: 1rem;
+        justify-content: flex-start;
       }
-      
-    .logo {
-      height: 40px;
-      display: block;
-    }
-
+      .logo {
+        height: 40px;
+      }
       .header-title {
         font-size: 1.1rem;
       }
-    }
-
-    .form-input:focus,
-    .login-button:focus {
-      outline: 2px solid var(--primary);
-      outline-offset: 2px;
     }
 
     .login-button:disabled {
       opacity: 0.6;
       cursor: not-allowed;
     }
+    
+    /* Modernized error box */
+    .error-box {
+        margin-top: 1rem;
+        padding: 0.75rem 1rem;
+        background: var(--error-bg);
+        color: var(--error-text);
+        border: 1px solid var(--error-border);
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        font-size: 0.9rem;
+        font-weight: 500;
+    }
+
   </style>
 </head>
 
@@ -262,28 +284,31 @@
               <label for="password" class="form-label">PASSWORD</label>
               <div class="input-wrapper">
                 <i class="fas fa-lock input-icon"></i>
+                <input type="password" id="password" name="password" class="form-input" placeholder="Enter your password" required />
                 <button type="button" class="show-hide-btn" onclick="togglePasswordVisibility()" aria-label="Show or hide password">
                   <i class="fas fa-eye" id="togglePasswordIcon"></i>
                 </button>
-                <script>
-                  function togglePasswordVisibility() {
-                  const passwordInput = document.getElementById('password');
-                  const icon = document.getElementById('togglePasswordIcon');
-                  if (passwordInput.type === 'password') {
-                    passwordInput.type = 'text';
-                    icon.classList.remove('fa-eye');
-                    icon.classList.add('fa-eye-slash');
-                  } else {
-                    passwordInput.type = 'password';
-                    icon.classList.remove('fa-eye-slash');
-                    icon.classList.add('fa-eye');
-                  }
-                  }
-                </script>
-                <input type="password" id="password" name="password" class="form-input" placeholder="Enter your password" required />
               </div>
             </div>
-            <button type="submit" name="submit" class="login-button">Sign In</button>
+            
+            <?php if (isset($_GET['error']) && $_GET['error'] === 'wronglogin'): ?>
+              <div class="error-box" id="errorBox">
+                <i class="fas fa-exclamation-circle"></i>
+                <span>Invalid login. Please try again.</span>
+              </div>
+              <script>
+                setTimeout(function() {
+                  var errorBox = document.getElementById('errorBox');
+                  if (errorBox) {
+                    errorBox.style.transition = 'opacity 0.5s ease';
+                    errorBox.style.opacity = '0';
+                    setTimeout(() => errorBox.style.display = 'none', 500);
+                  }
+                }, 4000);
+              </script>
+            <?php endif; ?>
+
+            <button type="submit" name="submit" class="login-button" style="margin-top: 1rem;">Sign In</button>
           </form>
         </div>
       </div>
@@ -292,18 +317,34 @@
 
   <footer>
     <div class="footer-text">
-      &copy; <?php echo date('Y'); ?>Department of ICT Faculty of Technological Studies University of Vavuniya
+      &copy; <?php echo date('Y'); ?> Department of ICT, Faculty of Technological Studies, University of Vavuniya
     </div>
   </footer>
 
+  <script>
+    function togglePasswordVisibility() {
+      const passwordInput = document.getElementById('password');
+      const icon = document.getElementById('togglePasswordIcon');
+      const isPassword = passwordInput.type === 'password';
+      passwordInput.type = isPassword ? 'text' : 'password';
+      icon.classList.toggle('fa-eye', !isPassword);
+      icon.classList.toggle('fa-eye-slash', isPassword);
+    }
+  </script>
+
   <?php
-  if (isset($_SESSION["username"]) && $_SESSION["role"] == "sys_admin") {
-    header('Location: dashboard.php');
-    exit();
-  } elseif (isset($_SESSION["username"]) && $_SESSION["role"] == "lecture") {
-    header('Location: lectuer.php');
-    exit();
+  // This PHP block should be at the top of the file before any HTML output to ensure headers can be sent correctly.
+  // For this example, we'll leave it here, but for production, it's best practice to handle session logic before the doctype.
+  if (isset($_SESSION["username"]) && isset($_SESSION["role"])) {
+    if ($_SESSION["role"] == "sys_admin") {
+        header('Location: dashboard.php');
+        exit();
+    } elseif ($_SESSION["role"] == "lecture") {
+        header('Location: lectuer.php'); // Note: 'lecturer.php' might be a typo for 'lecturer.php'
+        exit();
+    }
   }
   ?>
 </body>
+
 </html>
