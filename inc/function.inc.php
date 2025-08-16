@@ -66,20 +66,6 @@ function generateRandomPassword(int $length = 16): string
         return implode('', $passwordChars);
     }
 
-function generateRandomUsername(int $length = 16): string
-    {
-        $chars    = 'abcdefghijklmnopqrstuvwxyz'
-            . 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
-            . '0123456789';
-        $maxIndex = strlen($chars) - 1;
-        $username = '';
-        for ($i = 0; $i < $length; $i++) {
-            $username .= $chars[random_int(0, $maxIndex)];
-        }
-        return $username;
-    }
-
-
 function userExists($conn, $username)
 {
     $sql = "SELECT * FROM user WHERE username = ? OR email=?;";
